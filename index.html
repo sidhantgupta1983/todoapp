@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Todo App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/d65e853b8d.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container" id="pages">
+        <div class="row">
+            <p class="tasks">Tasks 
+                <span class="list">List</span>
+            </p>
+            <p class="btn" onclick="toggle()">
+                <i class="fa fa-plus-circle"></i> 
+                <span class="addItem">Add Item</span>
+            </p>
+        </div>
+        <div class="cardsToAdd">
+        </div>
+        <div id="noTodo">
+            No Items in the todo list
+        </div>
+    </div>
+
+    <div class="container" id="hideIndividualPage">
+        <div class="row">
+            <p class="back" onclick="goBack()">
+                <i class="fa fa-chevron-circle-left"></i>Back
+            </p>
+            <p class="tasks" id="individualPage">
+            </p>
+            <p class="btn" onclick="toggle()">
+                <i class="fa fa-plus-circle"></i>
+            </p>
+        </div>
+        <div class="placeInCenter">
+            <div class="card-2">
+                <p class="card-heading" id="individualPageHeading">
+                </p>
+                <ul id="singleList" type="none">
+                </ul>
+                <div class="footer-2">
+                    <button class="btn-completed" onclick="removeCard(this)"><i class="fa fa-trash"
+                            ></i></button>
+                    <p class="btn-add" onclick="addingItems(this)"><i class="fa fa-plus-circle"></i></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="dialogBox popup" id="popList">
+        <div>
+            <p class="dialogBoxText">Add New List</p>
+        </div>
+        <div>
+            <input type="text" id="listHeading" placeholder="Add New List">
+        </div>
+        <div>
+            <button onclick="addTodo()">Add</button>
+            <button onclick="toggle()">Close</button>
+        </div>
+    </div>
+
+    <div class="dialogBox popup" id="popItem">
+        <div>
+            <p class="dialogBoxText">Add New Item</p>
+        </div>
+        <div>
+            <input type="text" id="subListHeading" placeholder="Add New Item">
+        </div>
+        <div>
+            <button onclick="addSubTodo()">Add</button>
+            <button onclick="addingItems()">Close</button>
+        </div>
+    </div>
+    <script src="./index.js"></script>
+</body>
+
+</html>
