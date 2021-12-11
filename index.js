@@ -1,6 +1,6 @@
 let taskToDo = [];
-let current = true;
 
+let current = true;
 
 function loading() {
   if (current) {
@@ -35,7 +35,7 @@ function startTodo(todo) {
     task.setAttribute("class", "card");
     task.setAttribute("key", taskToDo[i].id);
     task.innerHTML = 
-    `<p class="card-heading" onclick="redirect(this)">${taskToDo[i].heading}</p>
+    `<p class="cardHeading" onclick="redirect(this)">${taskToDo[i].heading}</p>
       <ul type="none">
       </ul>
       <div class='footer'>
@@ -49,8 +49,8 @@ function startTodo(todo) {
     // console.log(currentTodo.subTask);
     for (let j = 0; j < currentTodo.subTask.length; j++) {
       let puttingClass = currentTodo.subTask[j].marked
-        ? "card-item card-item-checked"
-        : "card-item";
+        ? "cardItem marked"
+        : "cardItem";
       let rest = currentTodo.subTask[j].marked
         ? ""
         : '<button class = "markDone" onclick="markComplete(this)">Completed</button>';
@@ -67,9 +67,8 @@ function startTodo(todo) {
 
 function removeCard(element) {
   let tempElement = element.parentNode.parentNode;
-  console.log(tempElement);
+  // console.log(tempElement);
 
-  //Find in the todo array and remove
   for (let i = 0; i < taskToDo.length; i++) {
     if (taskToDo[i].id == tempElement.getAttribute("key")) {
       taskToDo.splice(i, 1);
@@ -115,16 +114,15 @@ function addSubTodo() {
     } else {
       list = currentChange.parentNode.parentNode.childNodes[3];
     }
-    console.log(currentChange.parentNode, currentChange.parentNode.parentNode);
+    // console.log(currentChange.parentNode, currentChange.parentNode.parentNode);
     let id = currentChange.parentNode.parentNode.getAttribute("key");
-    console.log(currentChange.parentNode.parentNode);
+    // console.log(currentChange.parentNode.parentNode);
 
     const task = document.createElement("li");
-    task.setAttribute("class", current ? `card-item` : `card-item-2`);
+    task.setAttribute("class", current ? `cardItem` : `cardItem2`);
     task.setAttribute("key", Date.now());
     task.innerHTML = ` ${taskHeading}<button class = 'markDone' onclick="markComplete(this)">Completed</button>`;
 
-    //Find in the todo array
     for (let i = 0; i < taskToDo.length; i++) {
       if (taskToDo[i].id == id) {
         taskToDo[i].subTask.push({
@@ -138,19 +136,17 @@ function addSubTodo() {
     list.append(task);
     addingItems();
   }
-  console.log(taskToDo);
 }
 
 
 function markComplete(element) {
   let puttingClass = current
-    ? "card-item card-item-checked"
-    : "card-item-2 card-item-checked";
+    ? "cardItem marked"
+    : "cardItem2 marked";
   element.parentNode.setAttribute("class", puttingClass);
   let id = element.parentNode.parentNode.parentNode.getAttribute("key");
   let subTaskId = element.parentNode.getAttribute("key");
 
-  // Find in the todo array
   for (let i = 0; i < taskToDo.length; i++) {
     if (taskToDo[i].id == id) {
       for (let j = 0; j < taskToDo[i].subTask.length; j++) {
@@ -196,7 +192,6 @@ function addingItems(item) {
 function redirect(element) {
   let id = element.parentNode.getAttribute("key");
   let currentTodo;
-  //Find in the todo array
   for (let i = 0; i < taskToDo.length; i++) {
     if (taskToDo[i].id == id) {
       currentTodo = taskToDo[i];
@@ -217,8 +212,8 @@ function redirect(element) {
   }
   for (let i = 0; i < currentTodo.subTask.length; i++) {
     let puttingClass = currentTodo.subTask[i].marked
-      ? "card-item-2 card-item-checked"
-      : "card-item-2";
+      ? "cardItem2 marked"
+      : "cardItem2";
     let rest = currentTodo.subTask[i].marked
       ? ""
       : '<button class = "markDone" onclick="markComplete(this)">Completed</button>';

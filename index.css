@@ -21,7 +21,6 @@ body {
   margin: 0px 0px;
   padding: 40px;
   background-color:#000;
-  overflow-y: scroll;
   overflow-x: hidden;
 
 }
@@ -31,12 +30,31 @@ body {
   font-weight: bold;
 }
 
+.list {
+  font-size: 1em;
+  font-weight: 100;
+}
 
 .card {
   min-height: 355px;
   min-width: 229px;
   border: 1px solid white;
   background: yellowgreen 0% 0% no-repeat padding-box;
+  box-shadow: 10px 10px 10px #00000029;
+  border-radius: 10px;
+  text-align: center;
+  margin: 30px 12px;
+  padding-bottom: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-2 {
+  min-height: 355px;
+  min-width: 229px;
+  border: 1px solid yellowgreen;
+  background: #ffffff 0% 0% no-repeat padding-box;
   box-shadow: 10px 10px 10px #00000029;
   border-radius: 10px;
   text-align: center;
@@ -47,7 +65,7 @@ body {
   justify-content: space-between;
 }
 
-.card-2 {
+.row2 {
   min-height: 355px;
   min-width: 229px;
   border: 1px solid #e74c3c;
@@ -79,7 +97,7 @@ body {
   background-color: mediumpurple;
 }
 
-.card-heading {
+.cardHeading {
   font-family: "Segoe UI", sans-serif;
   font-size: 0.7em;
   color: white;
@@ -93,19 +111,15 @@ body {
   cursor: pointer;
 }
 
-.card-item-checked {
+.marked {
   color: red;
   text-decoration: line-through;
-}
-
-.list {
-  font-size: 1em;
-  font-weight: 100;
 }
 
 .fa-plus-circle {
   color: white;
   cursor: pointer;
+  font-size: 27px;
 }
 
 .fa-check {
@@ -114,7 +128,7 @@ body {
   cursor: pointer;
 }
 
-.card-heading::after {
+.cardHeading::after {
   content: "";
   position: absolute;
   margin-top: 11px;
@@ -129,37 +143,23 @@ body {
   margin-left: -5px;
 }
 
-.card-item {
+.cardItem {
   font-size: 0.6em;
   font-weight: 400;
   margin-bottom: 7px;
   color: white;
 }
 
-.card-item-2 {
+.cardItem2 {
   font-size: 0.6em;
   font-weight: 400;
-  margin-bottom: 7px;
-  color: #34343b;
+  margin-bottom: 20px;
+  color: white;
 }
 
 ul {
   padding-left: 0;
 }
-
-
-
-.list-card {
-  height: 355px;
-  width: 400px;
-  min-width: 250px;
-  border: 1px solid yellowgreen;
-  background: #ffffff 0% 0% no-repeat padding-box;
-  box-shadow: 10px 10px 10px #00000029;
-  border-radius: 10px;
-  text-align: center;
-}
-
 
 .popup {
   position: fixed;
@@ -232,7 +232,7 @@ button {
   align-self: flex-end;
 }
 
-.footer-2 {
+.footer2 {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -266,8 +266,4 @@ button {
   top: 30%;
   opacity: 1;
   visibility: visible;
-}
-
-button:focus {
-  outline: none;
 }
